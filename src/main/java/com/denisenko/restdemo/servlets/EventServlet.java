@@ -44,11 +44,14 @@ public class EventServlet extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
 
         switch (action) {
-            case "showAll" -> printWriter.println(gson.toJson(eventController.getAllEvents()));
-            case "getById" -> {
+            case "showAll":
+                printWriter.println(gson.toJson(eventController.getAllEvents()));
+                break;
+            case "getById":
                 int id = Integer.parseInt(req.getParameter("id"));
                 printWriter.println(gson.toJson(eventController.getByIdEvent(id)));
-            }
+                break;
+
         }
     }
 

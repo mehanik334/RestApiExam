@@ -33,11 +33,13 @@ public class UserServlet extends HttpServlet {
         PrintWriter printWriter = resp.getWriter();
 
         switch (action) {
-            case "showAll" -> printWriter.println(gson.toJson(userController.getAllUsers()));
-            case "getById" -> {
+            case "showAll":
+                printWriter.println(gson.toJson(userController.getAllUsers()));
+                break;
+            case "getById":
                 int id = Integer.parseInt(req.getParameter("id"));
                 printWriter.println(gson.toJson(userController.getByIdUser(id)));
-            }
+                break;
         }
     }
 
@@ -62,7 +64,7 @@ public class UserServlet extends HttpServlet {
         String lastName = req.getParameter("lastName");
         String password = req.getParameter("password");
 
-        User updateUser = new User(idUpdateUser,firstName,lastName,password);
+        User updateUser = new User(idUpdateUser, firstName, lastName, password);
         printWriter.println(gson.toJson(userController.updateUser(updateUser)));
 
     }

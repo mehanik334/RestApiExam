@@ -64,16 +64,18 @@ public class FileServlet extends HttpServlet {
 
         switch (action) {
 
-            case "showAll" -> printWriter.println(gson.toJson(fileController.getAllFiles()));
+            case "showAll":
+                printWriter.println(gson.toJson(fileController.getAllFiles()));
+                break;
 
-            case "getById" -> {
+            case "getById":
                 int id = Integer.parseInt(req.getParameter("id"));
                 File file = fileController.getByIdFile(id);
                 printWriter.println(gson.toJson(file));
-            }
+                break;
         }
-
     }
+
 
     @Override
     protected void doDelete(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
