@@ -1,0 +1,1 @@
+web: java -Dserver.port=$PORT -jar target/RestDemo-1.0.jar
